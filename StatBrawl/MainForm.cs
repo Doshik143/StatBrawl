@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using StatBrawl.Services;
+using StatBrawl.Models;
 
 namespace StatBrawl
 {
@@ -15,6 +10,28 @@ namespace StatBrawl
         public StatBrawl()
         {
             InitializeComponent();
+        }
+
+        private async void btnLoad_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BrawlApiService api = new BrawlApiService();
+
+                Player player = await api.GetPlayerAsync(txtTag.Text);
+
+                lblName.Text = $"Ім'я: {player.name}";
+                lblTrophies.Text = $"Кубки: {player.trophies}";
+                lblHighest.Text = $"Рекорд: {player.highestTrophies}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message,
+                    "Помилка",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
     }
 }

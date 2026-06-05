@@ -17,15 +17,9 @@ namespace StatBrawl.Services
 
             using (HttpClient client = new HttpClient())
             {
-                client.DefaultRequestHeaders.Authorization =
-                    new AuthenticationHeaderValue("Bearer", _token);
-
-                string url =
-                    $"https://api.brawlstars.com/v1/players/{playerTag}";
-
-                string json =
-                    await client.GetStringAsync(url);
-
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
+                string url = $"https://api.brawlstars.com/v1/players/{playerTag}";
+                string json = await client.GetStringAsync(url);
                 return JsonConvert.DeserializeObject<Player>(json);
             }
         }
