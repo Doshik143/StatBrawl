@@ -23,6 +23,8 @@ namespace StatBrawl
                 lblName.Text = $"Ім'я: {player.name}";
                 lblTrophies.Text = $"Кубки: {player.trophies}";
                 lblHighest.Text = $"Рекорд: {player.highestTrophies}";
+
+                dgvBrawlers.DataSource = player.brawlers;
             }
             catch (Exception ex)
             {
