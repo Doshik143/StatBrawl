@@ -1,0 +1,67 @@
+#Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+
+#Visual Studio cache/options
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+#Rider
+.idea/
+
+#ReSharper
+_ReSharper*/
+*.DotSettings.user
+
+#Logs
+*.log
+
+#NuGet
+packages/
+*.nupkg
+project.lock.json
+project.assets.json
+
+#Publish output
+publish/
+
+#Test results
+TestResults/
+
+#Generated files
+Generated\ Files/
+
+#Windows thumbnails
+Thumbs.db
+Desktop.ini
+
+#Temporary files
+*.tmp
+*.temp
+
+#Backup files
+*.bak
+
+#Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+
+#SQL Server files
+*.mdf
+*.ldf
+
+#Package folders
+node_modules/
+
+#Ignore local settings
+appsettings.Development.json
+
+App.config
