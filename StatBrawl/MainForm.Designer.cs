@@ -42,17 +42,16 @@
             this.lblBrawlersCount = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.miFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.miStats = new System.Windows.Forms.ToolStripMenuItem();
-            this.miOther = new System.Windows.Forms.ToolStripMenuItem();
-            this.miHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.miRefresh = new System.Windows.Forms.ToolStripMenuItem();
             this.miBack = new System.Windows.Forms.ToolStripMenuItem();
             this.miExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.miChart = new System.Windows.Forms.ToolStripMenuItem();
+            this.miStats = new System.Windows.Forms.ToolStripMenuItem();
             this.miTop5 = new System.Windows.Forms.ToolStripMenuItem();
             this.miStrongest = new System.Windows.Forms.ToolStripMenuItem();
+            this.miOther = new System.Windows.Forms.ToolStripMenuItem();
             this.miClub = new System.Windows.Forms.ToolStripMenuItem();
             this.miCompare = new System.Windows.Forms.ToolStripMenuItem();
+            this.miHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.miAbout = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrawlers)).BeginInit();
             this.pnlStart.SuspendLayout();
@@ -201,33 +200,6 @@
             this.miFile.Size = new System.Drawing.Size(48, 20);
             this.miFile.Text = "Файл";
             // 
-            // miStats
-            // 
-            this.miStats.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.miChart,
-            this.miTop5,
-            this.miStrongest});
-            this.miStats.Name = "miStats";
-            this.miStats.Size = new System.Drawing.Size(80, 20);
-            this.miStats.Text = "Статистика";
-            // 
-            // miOther
-            // 
-            this.miOther.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.miClub,
-            this.miCompare});
-            this.miOther.Name = "miOther";
-            this.miOther.Size = new System.Drawing.Size(46, 20);
-            this.miOther.Text = "Інше";
-            // 
-            // miHelp
-            // 
-            this.miHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.miAbout});
-            this.miHelp.Name = "miHelp";
-            this.miHelp.Size = new System.Drawing.Size(61, 20);
-            this.miHelp.Text = "Довідка";
-            // 
             // miRefresh
             // 
             this.miRefresh.Name = "miRefresh";
@@ -249,23 +221,36 @@
             this.miExit.Text = "Вихід";
             this.miExit.Click += new System.EventHandler(this.miExit_Click);
             // 
-            // miChart
+            // miStats
             // 
-            this.miChart.Name = "miChart";
-            this.miChart.Size = new System.Drawing.Size(199, 22);
-            this.miChart.Text = "Графік кубків";
+            this.miStats.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miTop5,
+            this.miStrongest});
+            this.miStats.Name = "miStats";
+            this.miStats.Size = new System.Drawing.Size(80, 20);
+            this.miStats.Text = "Статистика";
             // 
             // miTop5
             // 
             this.miTop5.Name = "miTop5";
             this.miTop5.Size = new System.Drawing.Size(199, 22);
             this.miTop5.Text = "Топ-5 бійців";
+            this.miTop5.Click += new System.EventHandler(this.miTop5_Click);
             // 
             // miStrongest
             // 
             this.miStrongest.Name = "miStrongest";
             this.miStrongest.Size = new System.Drawing.Size(199, 22);
             this.miStrongest.Text = "Найсильніший brawler";
+            // 
+            // miOther
+            // 
+            this.miOther.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miClub,
+            this.miCompare});
+            this.miOther.Name = "miOther";
+            this.miOther.Size = new System.Drawing.Size(46, 20);
+            this.miOther.Text = "Інше";
             // 
             // miClub
             // 
@@ -278,6 +263,14 @@
             this.miCompare.Name = "miCompare";
             this.miCompare.Size = new System.Drawing.Size(210, 22);
             this.miCompare.Text = "Порівняння двох гравців";
+            // 
+            // miHelp
+            // 
+            this.miHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miAbout});
+            this.miHelp.Name = "miHelp";
+            this.miHelp.Size = new System.Drawing.Size(61, 20);
+            this.miHelp.Text = "Довідка";
             // 
             // miAbout
             // 
@@ -328,7 +321,6 @@
         private System.Windows.Forms.ToolStripMenuItem miBack;
         private System.Windows.Forms.ToolStripMenuItem miExit;
         private System.Windows.Forms.ToolStripMenuItem miStats;
-        private System.Windows.Forms.ToolStripMenuItem miChart;
         private System.Windows.Forms.ToolStripMenuItem miTop5;
         private System.Windows.Forms.ToolStripMenuItem miStrongest;
         private System.Windows.Forms.ToolStripMenuItem miOther;

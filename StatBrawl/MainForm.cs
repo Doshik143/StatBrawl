@@ -105,5 +105,25 @@ namespace StatBrawl
         {
             Application.Exit();
         }
+
+        private void miTop5_Click(object sender, EventArgs e)
+        {
+            if (_brawlers == null || !_brawlers.Any())
+            {
+                MessageBox.Show("Спочатку завантажте статистику.");
+                return;
+            }
+
+            var top5 = _brawlers.OrderByDescending(b => b.trophies).Take(5).ToList();
+
+            string text = "";
+
+            for (int i = 0; i < top5.Count; i++)
+            {
+                text += $"{i + 1}. {top5[i].name} - {top5[i].trophies} 🏆\n";
+            }
+
+            MessageBox.Show(text, "TOP-5 Brawlers", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
