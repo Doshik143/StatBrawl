@@ -4,12 +4,14 @@ using StatBrawl.Services;
 using StatBrawl.Models;
 using System.Linq;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace StatBrawl
 {
     public partial class StatBrawl : Form
     {
         private List<Brawler> _brawlers = new List<Brawler>();
+        private string _currentPlayerTag;
 
         public StatBrawl()
         {
@@ -40,34 +42,36 @@ namespace StatBrawl
             });
         }
 
+        private async Task LoadPlayerAsync(string tag)
+        {
+            BrawlApiService api = new BrawlApiService();
+
+            Player player = await api.GetPlayerAsync(tag);
+
+            _currentPlayerTag = tag;
+            _brawlers = player.brawlers;
+
+            lblName.Text = $"Name: {player.name}";
+            lblTrophies.Text = $"🏆: {player.trophies}";
+            lblHighest.Text = $"Рекорд: {player.highestTrophies}";
+            lblBrawlersCount.Text = $"Brawlers: {player.brawlers.Count}";
+
+            dgvBrawlers.DataSource = _brawlers.OrderByDescending(b => b.trophies).ToList();
+        }
+
         private async void btnLoad_Click(object sender, EventArgs e)
         {
             try
             {
-                BrawlApiService api = new BrawlApiService();
+                await LoadPlayerAsync(txtTag.Text);
 
-                Player player = await api.GetPlayerAsync(txtTag.Text);
-
-                lblName.Text = $"Name: {player.name}";
-                lblTrophies.Text = $"🏆: {player.trophies}";
-                lblHighest.Text = $"Рекорд: {player.highestTrophies}";
-                lblBrawlersCount.Text = $"Brawlers: {player.brawlers.Count}";
-
-                _brawlers = player.brawlers;
-
-                dgvBrawlers.DataSource = player.brawlers.OrderByDescending(b => b.trophies).ToList();
+                pnlStart.Visible = false;
+                pnlStats.Visible = true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    ex.Message,
-                    "Помилка",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message);
             }
-
-            pnlStart.Visible = false;
-            pnlStats.Visible = true;
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -75,6 +79,18 @@ namespace StatBrawl
             string search = txtSearch.Text.ToLower();
 
             dgvBrawlers.DataSource = _brawlers.Where(b => b.name.ToLower().Contains(search)).OrderByDescending(b => b.trophies).ToList();
+        }
+
+        private async void miRefresh_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                await LoadPlayerAsync(_currentPlayerTag);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
