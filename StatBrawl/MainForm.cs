@@ -100,5 +100,10 @@ namespace StatBrawl
 
             txtSearch.Clear();
         }
+
+        private void miExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

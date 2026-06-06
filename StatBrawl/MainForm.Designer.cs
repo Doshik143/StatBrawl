@@ -247,6 +247,7 @@
             this.miExit.Name = "miExit";
             this.miExit.Size = new System.Drawing.Size(208, 22);
             this.miExit.Text = "Вихід";
+            this.miExit.Click += new System.EventHandler(this.miExit_Click);
             // 
             // miChart
             // 
