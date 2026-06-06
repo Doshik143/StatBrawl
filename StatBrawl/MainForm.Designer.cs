@@ -46,7 +46,6 @@
             this.miOther = new System.Windows.Forms.ToolStripMenuItem();
             this.miHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.miRefresh = new System.Windows.Forms.ToolStripMenuItem();
-            this.miClear = new System.Windows.Forms.ToolStripMenuItem();
             this.miBack = new System.Windows.Forms.ToolStripMenuItem();
             this.miExit = new System.Windows.Forms.ToolStripMenuItem();
             this.miChart = new System.Windows.Forms.ToolStripMenuItem();
@@ -196,7 +195,6 @@
             // 
             this.miFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miRefresh,
-            this.miClear,
             this.miBack,
             this.miExit});
             this.miFile.Name = "miFile";
@@ -237,17 +235,12 @@
             this.miRefresh.Text = "Оновити статистику";
             this.miRefresh.Click += new System.EventHandler(this.miRefresh_Click);
             // 
-            // miClear
-            // 
-            this.miClear.Name = "miClear";
-            this.miClear.Size = new System.Drawing.Size(208, 22);
-            this.miClear.Text = "Очистити";
-            // 
             // miBack
             // 
             this.miBack.Name = "miBack";
             this.miBack.Size = new System.Drawing.Size(208, 22);
             this.miBack.Text = "Повернутися до пошуку";
+            this.miBack.Click += new System.EventHandler(this.miBack_Click);
             // 
             // miExit
             // 
@@ -331,7 +324,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem miFile;
         private System.Windows.Forms.ToolStripMenuItem miRefresh;
-        private System.Windows.Forms.ToolStripMenuItem miClear;
         private System.Windows.Forms.ToolStripMenuItem miBack;
         private System.Windows.Forms.ToolStripMenuItem miExit;
         private System.Windows.Forms.ToolStripMenuItem miStats;

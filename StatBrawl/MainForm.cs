@@ -92,5 +92,13 @@ namespace StatBrawl
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void miBack_Click(object sender, EventArgs e)
+        {
+            pnlStats.Visible = false;
+            pnlStart.Visible = true;
+
+            txtSearch.Clear();
+        }
     }
 }
