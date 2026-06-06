@@ -29,7 +29,7 @@ namespace StatBrawl
 
             dgvBrawlers.Columns.Add(new DataGridViewTextBoxColumn
             {
-                HeaderText = "Кубки",
+                HeaderText = "🏆",
                 DataPropertyName = "trophies"
             });
 
