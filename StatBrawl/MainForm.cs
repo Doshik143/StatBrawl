@@ -15,6 +15,9 @@ namespace StatBrawl
         {
             InitializeComponent();
 
+            pnlStart.Visible = true;
+            pnlStats.Visible = false;
+
             dgvBrawlers.AutoGenerateColumns = false;
             dgvBrawlers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
@@ -45,9 +48,10 @@ namespace StatBrawl
 
                 Player player = await api.GetPlayerAsync(txtTag.Text);
 
-                lblName.Text = $"Ім'я: {player.name}";
-                lblTrophies.Text = $"Кубки: {player.trophies}";
+                lblName.Text = $"Name: {player.name}";
+                lblTrophies.Text = $"🏆: {player.trophies}";
                 lblHighest.Text = $"Рекорд: {player.highestTrophies}";
+                lblBrawlersCount.Text = $"Brawlers: {player.brawlers.Count}";
 
                 _brawlers = player.brawlers;
 
@@ -61,6 +65,9 @@ namespace StatBrawl
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
+
+            pnlStart.Visible = false;
+            pnlStats.Visible = true;
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
